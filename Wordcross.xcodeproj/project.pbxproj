@@ -11,6 +11,8 @@
 		98AF2ADE2B660DD500940FED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2ADD2B660DD500940FED /* ContentView.swift */; };
 		98AF2AE02B660DD600940FED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AF2ADF2B660DD600940FED /* Assets.xcassets */; };
 		98AF2AE32B660DD600940FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AF2AE22B660DD600940FED /* Preview Assets.xcassets */; };
+		98AF2AEA2B66105100940FED /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AE92B66105100940FED /* GameState.swift */; };
+		98AF2AEC2B67464200940FED /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AEB2B67464200940FED /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		98AF2ADD2B660DD500940FED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		98AF2ADF2B660DD600940FED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98AF2AE22B660DD600940FED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		98AF2AE92B66105100940FED /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		98AF2AEB2B67464200940FED /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				98AF2ADB2B660DD500940FED /* WordcrossApp.swift */,
 				98AF2ADD2B660DD500940FED /* ContentView.swift */,
+				98AF2AE92B66105100940FED /* GameState.swift */,
+				98AF2AEB2B67464200940FED /* Cell.swift */,
 				98AF2ADF2B660DD600940FED /* Assets.xcassets */,
 				98AF2AE12B660DD600940FED /* Preview Content */,
 			);
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98AF2AEA2B66105100940FED /* GameState.swift in Sources */,
+				98AF2AEC2B67464200940FED /* Cell.swift in Sources */,
 				98AF2ADE2B660DD500940FED /* ContentView.swift in Sources */,
 				98AF2ADC2B660DD500940FED /* WordcrossApp.swift in Sources */,
 			);
