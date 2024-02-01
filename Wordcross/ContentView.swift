@@ -21,14 +21,9 @@ struct ContentView: View {
                         column in
                         
                         let cell = gameState.board[row][column]
-                        Text(cell.displayTile())
-                            .font(.system(size: 60))
-                            .foregroundColor(.black)
-                            .bold()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .aspectRatio(1, contentMode: .fit)
-                            .background(Color.white)
-                            .border(.black, width: 1)
+                        
+                        cell.tile.displayTile()
+
                     }
                 }
             }

@@ -9,9 +9,6 @@ import Foundation
 import SwiftUI
 
 struct Cell {
-    var letter: String
-    
-    func displayTile() -> String {
-        return letter
-    }
+    var tile: Tile
+
 }

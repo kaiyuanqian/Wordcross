@@ -13,6 +13,7 @@
 		98AF2AE32B660DD600940FED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98AF2AE22B660DD600940FED /* Preview Assets.xcassets */; };
 		98AF2AEA2B66105100940FED /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AE92B66105100940FED /* GameState.swift */; };
 		98AF2AEC2B67464200940FED /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AEB2B67464200940FED /* Cell.swift */; };
+		98AF2AEE2B6B664B00940FED /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AED2B6B664B00940FED /* Tile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		98AF2AE22B660DD600940FED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98AF2AE92B66105100940FED /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		98AF2AEB2B67464200940FED /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		98AF2AED2B6B664B00940FED /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				98AF2ADD2B660DD500940FED /* ContentView.swift */,
 				98AF2AE92B66105100940FED /* GameState.swift */,
 				98AF2AEB2B67464200940FED /* Cell.swift */,
+				98AF2AED2B6B664B00940FED /* Tile.swift */,
 				98AF2ADF2B660DD600940FED /* Assets.xcassets */,
 				98AF2AE12B660DD600940FED /* Preview Content */,
 			);
@@ -145,6 +148,7 @@
 			files = (
 				98AF2AEA2B66105100940FED /* GameState.swift in Sources */,
 				98AF2AEC2B67464200940FED /* Cell.swift in Sources */,
+				98AF2AEE2B6B664B00940FED /* Tile.swift in Sources */,
 				98AF2ADE2B660DD500940FED /* ContentView.swift in Sources */,
 				98AF2ADC2B660DD500940FED /* WordcrossApp.swift in Sources */,
 			);

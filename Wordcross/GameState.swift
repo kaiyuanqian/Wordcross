@@ -28,6 +28,11 @@ class GameState: ObservableObject {
         }
     }
     
+    // places a letter on the board
+    func placeLetter(_ row: Int, _ column: Int) {
+        
+    }
+    
     // creates an empty board
     func resetBoard() {
         var newBoard = [[Cell]]()
@@ -35,7 +40,7 @@ class GameState: ObservableObject {
         for _ in 0...4 {
             var row = [Cell]()
             for _ in 0...4 {
-                row.append(Cell(letter: "A"))
+                row.append(Cell(tile: Tile(letter: "A", score: 1)))
             }
             
             newBoard.append(row)
