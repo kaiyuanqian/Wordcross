@@ -15,12 +15,12 @@ struct Tile {
     func displayTile() -> AnyView {
         
         if score != nil {
-            return AnyView(HStack {
+            return AnyView(HStack(spacing: 4) {
                 Text(letter)
-                    .font(.system(size: 60))
+                    .font(.system(size: 50))
                 
                 Text(String(score!))
-                    .font(.system(size: 22))
+                    .font(.system(size: 18))
                     .offset(y: 15)
             }
                 
