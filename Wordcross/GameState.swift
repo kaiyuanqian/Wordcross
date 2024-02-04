@@ -16,6 +16,8 @@ class GameState: ObservableObject {
     let bagSize = 25
     let tileScores = ["A": 1, "B": 3, "C": 3, "D": 2, "E": 1, "F": 4, "G": 2, "H": 4, "I": 1, "J": 8, "K": 5, "L": 1, "M": 3, "N": 1, "O": 1, "P": 3, "Q": 10, "R": 1, "S": 1, "T": 1, "U": 1, "V": 4, "W": 4, "X": 8, "Y": 4, "Z": 10]
     
+    var numPlaced = 0 // number of letters that have been placed
+    
     init() {
         fillBagOfLetters()
         resetBoard()
@@ -31,19 +33,26 @@ class GameState: ObservableObject {
     
     // places a letter on the board
     func placeLetter(_ row: Int, _ column: Int) {
+        // is the cell empty?
+        if (board[row][column].tile.letter != "") {
+            return
+        }
         
+        // placed the letter in this cell
+        board[row][column].tile = Tile(letter: bagOfLetters[numPlaced], score: tileScores[bagOfLetters[numPlaced]])
+        
+        // move on to next letter
+        numPlaced += 1
     }
     
     // creates an empty board
     func resetBoard() {
         var newBoard = [[Cell]]()
-        var i = 0
         
         for _ in 0...4 {
             var row = [Cell]()
             for _ in 0...4 {
-                row.append(Cell(tile: Tile(letter: bagOfLetters[i], score: tileScores[bagOfLetters[i]])))
-                i += 1
+                row.append(Cell(tile: Tile(letter: "")))
             }
             
             newBoard.append(row)

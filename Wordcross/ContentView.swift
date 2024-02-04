@@ -23,7 +23,9 @@ struct ContentView: View {
                         let cell = gameState.board[row][column]
                         
                         cell.tile.displayTile()
-
+                            .onTapGesture {
+                                gameState.placeLetter(row, column)
+                            }
                     }
                 }
             }
