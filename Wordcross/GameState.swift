@@ -21,6 +21,7 @@ class GameState: ObservableObject {
     init() {
         fillBagOfLetters()
         resetBoard()
+        readWordsDict()
     }
     
     // fills bag of letters
@@ -43,6 +44,21 @@ class GameState: ObservableObject {
         
         // move on to next letter
         numPlaced += 1
+    }
+    
+    // reads the words dictionary and keeps array of 3 to 5 letter words
+    func readWordsDict() {
+        
+        if let fileURL = Bundle.main.url(forResource: "dictionary", withExtension: "txt") {
+            do {
+                let fileContents = try String(contentsOf: fileURL, encoding: .utf8)
+                let text: [String] = fileContents.components(separatedBy: "\n")
+                
+                Swift.print(text[0])
+            } catch let error {
+                Swift.print("Fatal Error: \(error.localizedDescription)")
+            }
+        }
     }
     
     // creates an empty board

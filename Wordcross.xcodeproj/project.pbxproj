@@ -14,7 +14,20 @@
 		98AF2AEA2B66105100940FED /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AE92B66105100940FED /* GameState.swift */; };
 		98AF2AEC2B67464200940FED /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AEB2B67464200940FED /* Cell.swift */; };
 		98AF2AEE2B6B664B00940FED /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF2AED2B6B664B00940FED /* Tile.swift */; };
+		98AF2AF22B70FB7200940FED /* dictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 98AF2AF12B70FB7200940FED /* dictionary.txt */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		98AF2AF32B74539800940FED /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		98AF2AD82B660DD500940FED /* Wordcross.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordcross.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +38,7 @@
 		98AF2AE92B66105100940FED /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		98AF2AEB2B67464200940FED /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		98AF2AED2B6B664B00940FED /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		98AF2AF12B70FB7200940FED /* dictionary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dictionary.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +73,7 @@
 			children = (
 				98AF2ADB2B660DD500940FED /* WordcrossApp.swift */,
 				98AF2ADD2B660DD500940FED /* ContentView.swift */,
+				98AF2AF12B70FB7200940FED /* dictionary.txt */,
 				98AF2AE92B66105100940FED /* GameState.swift */,
 				98AF2AEB2B67464200940FED /* Cell.swift */,
 				98AF2AED2B6B664B00940FED /* Tile.swift */,
@@ -86,6 +101,7 @@
 				98AF2AD42B660DD500940FED /* Sources */,
 				98AF2AD52B660DD500940FED /* Frameworks */,
 				98AF2AD62B660DD500940FED /* Resources */,
+				98AF2AF32B74539800940FED /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -134,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98AF2AF22B70FB7200940FED /* dictionary.txt in Resources */,
 				98AF2AE32B660DD600940FED /* Preview Assets.xcassets in Resources */,
 				98AF2AE02B660DD600940FED /* Assets.xcassets in Resources */,
 			);
