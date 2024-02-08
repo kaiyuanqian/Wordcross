@@ -18,10 +18,13 @@ class GameState: ObservableObject {
     
     var numPlaced = 0 // number of letters that have been placed
     
+    var allWords = [String]()
+    
     init() {
         fillBagOfLetters()
         resetBoard()
         readWordsDict()
+        retainSuitableWords()
     }
     
     // fills bag of letters
@@ -46,19 +49,28 @@ class GameState: ObservableObject {
         numPlaced += 1
     }
     
-    // reads the words dictionary and keeps array of 3 to 5 letter words
+    // reads the words dictionary
     func readWordsDict() {
         
         if let fileURL = Bundle.main.url(forResource: "dictionary", withExtension: "txt") {
             do {
                 let fileContents = try String(contentsOf: fileURL, encoding: .utf8)
-                let text: [String] = fileContents.components(separatedBy: "\n")
+                allWords = fileContents.components(separatedBy: "\n")
                 
-                Swift.print(text[0])
+                
+                Swift.print(allWords[0])
             } catch let error {
                 Swift.print("Fatal Error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    // remove every word that isn't between 3 and 5 characters in length
+    func retainSuitableWords() {
+        Swift.print(allWords.count)
+        allWords.removeAll { $0.count > 5}
+        allWords.removeAll { $0.count < 3}
+        Swift.print(allWords.count)
     }
     
     // creates an empty board
