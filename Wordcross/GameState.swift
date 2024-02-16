@@ -11,6 +11,7 @@ class GameState: ObservableObject {
     
     @Published var board = [[Cell]]()
     @Published var bagOfLetters = [String]()
+    @Published var foundWords = [String]()
     
     let alphabet: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     let bagSize = 25
@@ -27,6 +28,7 @@ class GameState: ObservableObject {
         resetBoard()
         readWordsDict()
         retainSuitableWords()
+        
     }
     
     // fills bag of letters
@@ -50,7 +52,7 @@ class GameState: ObservableObject {
         // move on to next letter
         numPlaced += 1
         
-        leftLength(row, column)
+        newWords(row, column)
     }
     
     // calculates the number of letters directly before the letter that just got placed
@@ -68,6 +70,56 @@ class GameState: ObservableObject {
         }
 
         return leftLen
+    }
+    
+    // calculates the number of letters directly after the letter that just got placed
+    func rightLength(_ row: Int, _ column: Int) -> Int {
+        var currCol = column // we initially start w the new letter which was placed in this column
+        var rightLen = 0
+        var tile: Tile = board[row][currCol].tile
+        
+        while tile.letter != "" && currCol < maxWordLen - 1 {
+            tile = board[row][currCol + 1].tile
+            currCol += 1
+            if tile.letter != "" {
+                rightLen += 1
+            }
+        }
+
+        return rightLen
+    }
+
+    // check for new words created when a new character is placed
+    func newWords(_ row: Int, _ column: Int) -> [String] {
+        var leftLen = leftLength(row, column)
+        var rightLen = rightLength(row, column)
+        var currWord = ""
+        var newWords: [String] = []
+        
+        if leftLen + rightLen + 1 >= minWordLen  {
+            for i in 0...leftLen {
+                if i + 1 + rightLen >= minWordLen {
+                    var startCol = column - i // we are searching for words starting at this point
+                    var maxLen = i + 1 + rightLen
+                    
+                    for j in max(i + 1, minWordLen)...maxLen {
+                        for k in 0...j {
+                            currWord.append(board[row][startCol + k].tile.letter)
+                        }
+                        
+                        if allWords.contains(currWord) {
+                            newWords.append(currWord)
+                            Swift.print(currWord)
+                        }
+                        currWord = ""
+                    }
+                }
+            }
+        } else {
+            return newWords
+        }
+
+        return newWords
     }
     
     // reads the words dictionary
