@@ -33,10 +33,17 @@ class GameState: ObservableObject {
     
     // fills bag of letters
     func fillBagOfLetters() {
-        for _ in 0..<bagSize {
+        
+
+        bagOfLetters.append("W")
+        bagOfLetters.append("I")
+        bagOfLetters.append("N")
+
+        for _ in 3..<bagSize {
             let rand = Int(arc4random_uniform(26))
             bagOfLetters.append(alphabet[rand])
         }
+
     }
     
     // places a letter on the board and checks whether any words were formed
@@ -88,11 +95,47 @@ class GameState: ObservableObject {
 
         return rightLen
     }
+    
+    // calculates the number of letters directly above the letter that just got placed
+    func upLength(_ row: Int, _ column: Int) -> Int {
+        var currRow = row // we initially start w the new letter which was placed in this column
+        var upLen = 0
+        var tile: Tile = board[currRow][column].tile
+        
+        while tile.letter != "" && currRow > 0 {
+            tile = board[currRow - 1][column].tile
+            currRow -= 1
+            if tile.letter != "" {
+                upLen += 1
+            }
+        }
+
+        return upLen
+    }
+    
+    // calculates the number of letters directly below the letter that just got placed
+    func downLength(_ row: Int, _ column: Int) -> Int {
+        var currRow = row
+        var downLen = 0
+        var tile: Tile = board[currRow][column].tile
+        
+        while tile.letter != "" && currRow < maxWordLen - 1 {
+            tile = board[currRow + 1][column].tile
+            currRow += 1
+            if tile.letter != "" {
+                downLen += 1
+            }
+        }
+
+        return downLen
+    }
 
     // check for new words created when a new character is placed
     func newWords(_ row: Int, _ column: Int) -> [String] {
         var leftLen = leftLength(row, column)
         var rightLen = rightLength(row, column)
+        var upLen = upLength(row, column)
+        var downLen = downLength(row, column)
         var currWord = ""
         var newWords: [String] = []
         
@@ -103,7 +146,7 @@ class GameState: ObservableObject {
                     var maxLen = i + 1 + rightLen
                     
                     for j in max(i + 1, minWordLen)...maxLen {
-                        for k in 0...j {
+                        for k in 0...j - 1 {
                             currWord.append(board[row][startCol + k].tile.letter)
                         }
                         
@@ -115,8 +158,27 @@ class GameState: ObservableObject {
                     }
                 }
             }
-        } else {
-            return newWords
+        }
+        
+        if upLen + downLen + 1 >= minWordLen  {
+            for i in 0...upLen {
+                if i + 1 + downLen >= minWordLen {
+                    var startRow = row - i // we are searching for words starting at this point
+                    var maxLen = i + 1 + downLen
+                    
+                    for j in max(i + 1, minWordLen)...maxLen {
+                        for k in 0...j - 1 {
+                            currWord.append(board[startRow + k][column].tile.letter)
+                        }
+                        
+                        if allWords.contains(currWord) {
+                            newWords.append(currWord)
+                            Swift.print(currWord)
+                        }
+                        currWord = ""
+                    }
+                }
+            }
         }
 
         return newWords
